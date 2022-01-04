@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "chrome-extension-template",
+  "name": "window-size-changer",
   "version": "1.0.0",
   "description": "chrome-extension-template",
   "browser_action": {

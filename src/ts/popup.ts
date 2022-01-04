@@ -11,7 +11,8 @@ function getWindowWidth() {
                     const windowWidth: number = Number(
                         result[0]
                     );
-                    alert(windowWidth)
+                    // alert(windowWidth)
+                    console.log(windowWidth)
                 }
             );
         }
@@ -31,19 +32,36 @@ function getWindowHeight() {
                     const windowHeight: number = Number(
                         result[0]
                     );
-                    alert(windowHeight)
+                    // alert(windowHeight)
+                    console.log(windowHeight)
                 }
             );
         }
     );
 }
 
-function main() {
-    getWindowWidth()
-    getWindowHeight()
+function resizeWindow(width: number, height: number) {
+    console.log(width)
+    console.log(height)
+    let updateInfo = {
+        width: width,
+        height: height,
+        state: "normal"
+    };
+    chrome.windows.getCurrent({ populate: true }, function(currentWindow) {
+        if (currentWindow.id != null) {
+            // @ts-ignore
+            chrome.windows.update(currentWindow.id, updateInfo)
+        }
+    });
+}
+
+async function main() {
+    // getWindowWidth()
+    // getWindowHeight()
+    // await chrome.tabs.create({ url: "https://qiita.com/Tachibana446/items/ab15021099d54d1209c2" });
+    resizeWindow(900, 644)
 }
 
 main()
-
-1366, 768
 
